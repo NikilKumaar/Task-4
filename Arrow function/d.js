@@ -1,13 +1,24 @@
 // Return all the prime numbers in a array
 
-let primeNum = (arr) =>
-{
-    for (let i = 0; i < arr.length; i++)
-    {
-        if (arr[i] % 2 != 0)
-        {
-            console.log(arr[i])
-            }
-        }
+let  checkPrime = (number) =>{
+  if (number <= 1) {
+    return false;
+  } else {
+    for (let i = 2; i < number; i++) {
+      if (number % i == 0) {
+        return false;
+      }
+    }
+    return true;
+  }
 }
-primeNum([3, 4, 6, 7, 10, 12, 13, 15, 17, 19]);
+// console.log(checkPrime(101))
+
+let arr = [1, 3, 5, 6, 7, 8, 9, 11, 12, 14, 17, 19];
+let primeVal = [];
+for (let i = 0; i < arr.length; i++) {
+  if (checkPrime(arr[i])) {
+    primeVal.push(arr[i]);
+  }
+}
+console.log(primeVal.join(" "));
